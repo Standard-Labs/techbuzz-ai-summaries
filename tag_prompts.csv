@@ -1,5 +1,5 @@
 Tag,Prompt
-News,"**Shorten and summarize each separate story into one and a half lines including all the key information concisely in the following format:
+News,"**Shorten and summarize each separate story into one and a half lines including all the key information concisely in the following format. And remove UTM trackers from urls.**
 EXAMPLES:
 [If It Looks Like a bank…](https://techcrunch.com/2024/11/21/apple-pay-paypal-cash-app-will-be-treated-more-like-banks/)** — The **CFPB** just ruled that **any digital service** that handles a significant number of transactions (eg. **Apple**, **Paypal**) should be subject to **bank-like oversight**.
 
@@ -12,7 +12,7 @@ EXAMPLES:
 [**Adani Charged**](https://www.ft.com/content/cab2e834-e5fa-4dd0-b757-76c243ac2eeb) — India’s richest man, billionaire **Gautam Adani**, faces federal charges over alleged **bribes** for contracts and **concealing payments** from US banks.
 
 INPUT:"
-Company to Watch,"**Shorten and summarize into one and a half lines including all the key information concisely in this exact format:**
+Company to Watch,"**Shorten and summarize into one and a half lines including all the key information concisely in this exact format. And remove UTM trackers from urls.**
 EXAMPLES:
 [**GlobalFoundries**](https://www.reuters.com/technology/us-finalizes-15-billion-chips-award-globalfoundries-expand-production-2024-11-20/) — Finalized a **$1.5B** chips subsidy to expand its semiconductor production in NY and VT. The company is investing **$13B** over **10+** years in US sites serving various tech sectors.
 
@@ -23,7 +23,7 @@ EXAMPLES:
 [**BlackRock Bitcoin ETF**](https://www.coindesk.com/markets/2024/11/20/bitcoin-etf-options-attract-2b-on-day-one-shifting-btcs-market-structure/) — The **IBIT** options launch saw **$1.9B** of exposure on day one with **4.4:1** calls to puts ratio, amid **Bitcoin** hitting **$94,700**.
 
 INPUT:"
-Crypto News,"**Shorten and summarize into one and a half lines including all the key information concisely in this exact format:**
+Crypto News,"**Shorten and summarize into one and a half lines including all the key information concisely in this exact format. And remove UTM trackers from urls.**
 EXAMPLES:
 [**GlobalFoundries**](https://www.reuters.com/technology/us-finalizes-15-billion-chips-award-globalfoundries-expand-production-2024-11-20/) — Finalized a **$1.5B** chips subsidy to expand its semiconductor production in NY and VT. The company is investing **$13B** over **10+** years in US sites serving various tech sectors.
 
@@ -34,7 +34,7 @@ EXAMPLES:
 [**BlackRock Bitcoin ETF**](https://www.coindesk.com/markets/2024/11/20/bitcoin-etf-options-attract-2b-on-day-one-shifting-btcs-market-structure/) — The **IBIT** options launch saw **$1.9B** of exposure on day one with **4.4:1** calls to puts ratio, amid **Bitcoin** hitting **$94,700**.
 
 INPUT:"
-Massive Deals,"Shorten and summarize each deal into one and a half lines including all the key information concisely in the precise following format:
+Massive Deals,"Shorten and summarize each deal into one and a half lines including all the key information concisely in the precise following format. And remove UTM trackers from urls.**
 EXAMPLES:
 [**xAI**](https://www.wsj.com/tech/ai/elon-musks-startup-xai-valued-at-50-billion-in-new-funding-round-7e3669dc) — **Elon Musk**'s AI startup raised a further **$5B** at a **$50B** valuation, with investors including **Qatar Investment Authority**, **Valor Equity**, **Sequoia**, and **Andreessen Horowitz**. It was valued at **$24B** when it raised **$6B** in the spring.
 
@@ -43,7 +43,7 @@ EXAMPLES:
 [**Cyera**](https://www.cyera.io/blog/a-big-step-forward-for-cyera-300m-series-d-to-drive-the-future-of-data-security) — The NY/Israeli **data security** startup, secured a **$300M** **Series D** at **$3B** valuation, led by **Accel** and **Sapphire**, with participation from **Sequoia**, **Redpoint**, **Coatue**, and **Georgian**.
 
 INPUT:"
-Large Deals,"Shorten and summarize each deal into one and a half lines including all the key information concisely in the precise following format:
+Large Deals,"Shorten and summarize each deal into one and a half lines including all the key information concisely in the precise following format. And remove UTM trackers from urls.**
 EXAMPLES
 [**xAI**](https://www.wsj.com/tech/ai/elon-musks-startup-xai-valued-at-50-billion-in-new-funding-round-7e3669dc) — **Elon Musk**'s AI startup raised a further **$5B** at a **$50B** valuation, with investors including **Qatar Investment Authority**, **Valor Equity**, **Sequoia**, and **Andreessen Horowitz**. It was valued at **$24B** when it raised **$6B** in the spring.
 
@@ -52,7 +52,7 @@ EXAMPLES
 [**Cyera**](https://www.cyera.io/blog/a-big-step-forward-for-cyera-300m-series-d-to-drive-the-future-of-data-security) — The NY/Israeli **data security** startup, secured a **$300M** **Series D** at **$3B** valuation, led by **Accel** and **Sapphire**, with participation from **Sequoia**, **Redpoint**, **Coatue**, and **Georgian**.
 
 INPUT:"
-Small Deals,"Shorten and summarize each deal into one and a half lines including all the key information concisely in the precise following format:
+Small Deals,"Shorten and summarize each deal into one and a half lines including all the key information concisely in the precise following format. And remove UTM trackers from urls.**
 EXAMPLES:
 [**xAI**](https://www.wsj.com/tech/ai/elon-musks-startup-xai-valued-at-50-billion-in-new-funding-round-7e3669dc) — **Elon Musk**'s AI startup raised a further **$5B** at a **$50B** valuation, with investors including **Qatar Investment Authority**, **Valor Equity**, **Sequoia**, and **Andreessen Horowitz**. It was valued at **$24B** when it raised **$6B** in the spring.
 
@@ -61,7 +61,7 @@ EXAMPLES:
 [**Cyera**](https://www.cyera.io/blog/a-big-step-forward-for-cyera-300m-series-d-to-drive-the-future-of-data-security) — The NY/Israeli **data security** startup, secured a **$300M** **Series D** at **$3B** valuation, led by **Accel** and **Sapphire**, with participation from **Sequoia**, **Redpoint**, **Coatue**, and **Georgian**.
 
 INPUT:"
-Closed Deals,"Shorten and summarize each deal into one and a half lines including all the key information concisely in the precise following format:
+Closed Deals,"Shorten and summarize each deal into one and a half lines including all the key information concisely in the precise following format. And remove UTM trackers from urls.**
 EXAMPLES:
 [**xAI**](https://www.wsj.com/tech/ai/elon-musks-startup-xai-valued-at-50-billion-in-new-funding-round-7e3669dc) — **Elon Musk**'s AI startup raised a further **$5B** at a **$50B** valuation, with investors including **Qatar Investment Authority**, **Valor Equity**, **Sequoia**, and **Andreessen Horowitz**. It was valued at **$24B** when it raised **$6B** in the spring.
 
@@ -70,7 +70,7 @@ EXAMPLES:
 [**Cyera**](https://www.cyera.io/blog/a-big-step-forward-for-cyera-300m-series-d-to-drive-the-future-of-data-security) — The NY/Israeli **data security** startup, secured a **$300M** **Series D** at **$3B** valuation, led by **Accel** and **Sapphire**, with participation from **Sequoia**, **Redpoint**, **Coatue**, and **Georgian**.
 
 INPUT:"
-Exit Watching,"Shorten and summarize into one and a half lines including all the key information concisely in the exact format following:
+Exit Watching,"Shorten and summarize into one and a half lines including all the key information concisely in the exact format. And remove UTM trackers from urls.**
 EXAMPLES:
 [**TradePMR**](https://newslink.reuters.com/click/37536989.37500/aHR0cHM6Ly93d3cucmV1dGVycy5jb20vbWFya2V0cy9kZWFscy9yb2Jpbmhvb2QtYWNxdWlyZS10cmFkZXBtci0zMDAtbWxuLWJvb3N0LWFkdmlzb3J5LWJ1c2luZXNzLTIwMjQtMTEtMTkvP3V0bV9zb3VyY2U9U2FpbHRocnUmdXRtX21lZGl1bT1OZXdzbGV0dGVyJnV0bV9jYW1wYWlnbj1UZWNobm9sb2d5LVJvdW5kdXAmdXRtX3Rlcm09MTExOTI0JmxjdGc9NjRkNDNmZDIyMGI2YjIxYzQzMGJlZTIy/64d43fd220b6b21c430bee22B1ffff388) — Robinhood will acquire the registered investment advisers (RIAs) company with **$40B AUM** for approximately **$300M** in a **cash-and-stock** deal to enhance its advisory business.
 
@@ -79,7 +79,7 @@ EXAMPLES:
 [**McIntosh Group**](https://www.bose.com/pressroom/bose-acquires-mcintosh-group-announcement) — Audio giant **Bose** is acquiring the parent of **McIntosh** and **Sonus Faber** hi-fi brands with a focus on improving its **automotive sector** audio business.
 
 INPUT:"
-Funding Buzz,"**Shorten and summarize each deal into one and a half lines including all the key information concisely using the following format:**
+Funding Buzz,"**Shorten and summarize each deal into one and a half lines including all the key information concisely using the following format. And remove UTM trackers from urls.**
 EXAMPLES:
 [**Gilroy & Rajaram**](https://techcrunch.com/2024/11/22/gilroy-former-coatue-fintech-head-and-angel-investor-rajaram-launch-vc-firm/) — Former **Coatue** investor **Michael Gilroy** and tech exec **Gokul Rajaram** will raise a **$400-500M** **debut fund** for a new VC firm to back U.S.-based early-stage **fintech** and **software** startups.
 
@@ -90,7 +90,7 @@ EXAMPLES:
 [**GitHub**](https://techcrunch.com/2024/11/19/github-launches-1-25m-open-source-fund-with-a-focus-on-security/) — The **Microsoft**-owned platform launched a **$1.25M** **fund** for **open source** projects with a focus on security. It’s backed by **American Express**, **Shopify**, & **Stripe**.
 
 INPUT:"
-Buzzy Tools,"**Shorten and summarize each tool into half a line of text including all the key information concisely in the following format:
+Buzzy Tools,"**Shorten and summarize each tool into half a line of text including all the key information concisely in the following format. And remove UTM trackers from urls.**
 EXAMPLES:
 [Google](https://x.com/GeminiApp/status/1858929151476199591)** — New Gemini AI memory feature for personalized interactions.
 
@@ -101,7 +101,7 @@ EXAMPLES:
 [**DeepSeek-R1**](https://techcrunch.com/2024/11/20/a-chinese-lab-has-released-a-model-to-rival-openais-o1/) — Chinese lab releases preview “**reasoning**” model rivaling **OAI**’s **o1**.
 
 INPUT:"
-Buzzy Tech,"**Shorten and summarize each technology story into around half a line of text including all the key information concisely in the following format:**
+Buzzy Tech,"**Shorten and summarize each technology story into around half a line of text including all the key information concisely in the following format. And remove UTM trackers from urls.**
 EXAMPLES:
 [**Cancer Kill Switch**](https://lifeboat.com/blog/2025/01/researchers-find-a-cancer-kill-switch-that-could-replace-chemotherapy) — Breakthrough **cell defense mechanism** may replace **chemo**.
 
@@ -114,7 +114,7 @@ EXAMPLES:
 [**Robobus**](https://interestingengineering.com/transportation/china-robobus-begins-ops-at-zurich-airport) — 1st Europe **driverless shuttle** service starts in Zurich by China’s **WeRide**
 
 INPUT:"
-Space,"**Shorten and summarize each technology story into around half a line of text including all the key information concisely in the following format:**
+Space,"**Shorten and summarize each technology story into around half a line of text including all the key information concisely in the following format. And remove UTM trackers from urls.**
 EXAMPLES:
 [**Blue Origin**](https://techcrunch.com/2025/01/13/blue-origin-delays-launch-of-new-glenn-mega-rocket)_Postponed the inaugural launch of its first orbital rocket, **New Glenn**
 
@@ -123,7 +123,7 @@ EXAMPLES:
 [**Space Factories**](https://interestingengineering.com/space/space-factories-closer-to-reality)_ Off-world factories a step closer with **3D printing tech** progress.
 
 INPUT:"
-Consumer Tech,"**Shorten and summarize each story into one and a half lines including all the key information concisely in the following format:**
+Consumer Tech,"**Shorten and summarize each story into one and a half lines including all the key information concisely in the following format. And remove UTM trackers from urls.**
 EXAMPLES:
 [**B&O's Premium Buds**](https://www.engadget.com/audio/headphones/bang--olufsen-reveals-its-latest-premium-earbuds-the-499-beoplay-eleven-154913102.html) — The new $499 Beoplay Eleven earbuds feature jewelry-inspired design with polished aluminum finish, AirPods-style stems, and Qi wireless charging.
 
@@ -132,7 +132,7 @@ EXAMPLES:
 [**Cadillac Goes Electric**](https://www.engadget.com/transportation/evs/cadillac-reveals-the-2026-vistiq-ev-suv-191557412.html) — The 2026 Vistiq, a three-row luxury EV SUV starting at $78,790, features 615hp, 300-mile range, and V2H charging capability to power homes during outages.
 
 INPUT:"
-Food/Drink,"**Shorten and summarize each story into one and a half lines including all the key information concisely in the following format:**
+Food/Drink,"**Shorten and summarize each story into one and a half lines including all the key information concisely in the following format. And remove UTM trackers from urls.**
 EXAMPLES:
 [**New NY Restaurants**](https://www.nytimes.com/2024/11/26/dining/nyc-restaurant-news.html) — Blue Blossom offers modern interpretations of regional Chinese dishes, Le Basque offers vegan takes on classic Basque/French dishes, and Armani/Ristorante serves upscale Italian cuisine in style.
 
@@ -147,7 +147,7 @@ EXAMPLES:
 [**The Jazz Café**](https://www.latimes.com/food/story/2024-11-22/jazz-club-cipriani-beverly-hills-curtis-stone-pie-room) — The Cipriani Beverly Hills-based club offers live music, a full bar, and a menu featuring Cipriani classics featuring jazz in a stylish setting reminiscent of Hollywood's Golden Era.
 
 INPUT:"
-Art/Culture,"**Shorten and summarize each story into one and a half lines including all the key information concisely in the following format:**
+Art/Culture,"**Shorten and summarize each story into one and a half lines including all the key information concisely in the following format. And remove UTM trackers from urls.**
 EXAMPLES:
 [**""The Singularity Is Nearer""**](https://www.nytimes.com/2024/06/26/books/review/ray-kurzweil-the-singularity-is-nearer.html) — AI visionary Ray Kurzweil’s latest is a follow-up to his 2000s bestseller, exploring the future of AI, predicting nanobots will merge with humans to enhance intelligence and health.
 
@@ -158,7 +158,7 @@ EXAMPLES:
 [**Burning Man’s Budget Shortfall**](https://www.billboard.com/pro/burning-man-ceo-ticket-prices-fundraising-2025-event-interview/) — CEO, Marian Goodell published an urgent request to the global Burner community for $20M in charitable donations by end of the year to avoid ticket price rises for future events.
 
 INPUT:"
-Sports,"**Shorten and summarize each story into one and a half lines including all the key information concisely in the following format:**
+Sports,"**Shorten and summarize each story into one and a half lines including all the key information concisely in the following format. And remove UTM trackers from urls.**
 EXAMPLES:
 [**ESPN-MLB Split**](https://edition.cnn.com/2025/02/20/sport/espn-mlb-end-relationship-spt/index.html) — **ESPN** and **MLB** will end their partnership after 2025 due to **rights fee** **disputes**; MLB seeks new deals amid rising attendance while ESPN eyes other summer sports.
 
@@ -169,7 +169,7 @@ EXAMPLES:
 [**4 Nations Final**](https://www.nhl.com/news/4-nations-face-off-live-blog-canada-united-states-february-20-2025) — **Team Canada** defeated the U.S. in an overtime thriller at the **4 Nations Face-Off**; Connor McDavid netted the winner in a 3-2 victory with stellar goaltending on both sides.
 
 INPUT:"
-Futurism,"**Shorten and summarize each story into one and a half lines including all the key information concisely in the following format:**
+Futurism,"**Shorten and summarize each story into one and a half lines including all the key information concisely in the following format. And remove UTM trackers from urls.**
 EXAMPLES:
 [**Nano-Scale Dinosaur**](https://www.theguardian.com/environment/2024/nov/27/nano-scale-dinosaur-made-by-australian-researchers-from-dna-building-blocks) — Researchers use DNA building blocks to create structures thousands of times narrower than a human hair, with future uses in nanobot tech.
 
@@ -182,7 +182,7 @@ EXAMPLES:
 [**Max Planck Institute**](https://interestingengineering.com/energy/spin-powered-crystals-could-boost-clean-hydrogen-production-200-times) — researchers develop special crystals that boost hydrogen production efficiency 200x by manipulating electron spin for clean energy production.
 
 INPUT:"
-Wellness,"**Shorten and summarize each story into one and a half lines including all the key information concisely in the following format:**
+Wellness,"**Shorten and summarize each story into one and a half lines including all the key information concisely in the following format. And remove UTM trackers from urls.**
 EXAMPLES:
 [**ALA-CART Cancer Therapy**](https://scitechdaily.com/supercharged-t-cells-hunt-down-the-hardest-to-treat-cancers/) [](https://phys.org/news/2025-03-molecular-3d-viral-machine-deciphered.html)— Enhanced CAR-T therapy improves detection of resistant cancer cells, promising better outcomes with fewer side effects; clinical trials planned.
 
