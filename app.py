@@ -2,9 +2,9 @@ import streamlit as st
 import pandas as pd
 import time
 import os
-import concurrent.futures
 from openai import OpenAI
 from dotenv import load_dotenv
+import csv
 
 # Load environment variables from .env file
 load_dotenv()
@@ -12,13 +12,16 @@ load_dotenv()
 # Set page configuration
 st.set_page_config(page_title="AI Summary Generator", page_icon="📝", layout="wide")
 
-# Constants
+###########################################
+# CONSTANTS
+###########################################
+
 GPT4O_MODEL = "gpt-4o"
-MAX_TOKENS = 300
+MAX_TOKENS = 1000
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
 
-# GPT-4o prompt template
-PROMPT_TEMPLATE = """
+# Default GPT-4o prompt template
+DEFAULT_PROMPT_TEMPLATE = """
 Shorten and summarize the following news article into one and a half lines including all the key information concisely in the following format:
 
 [Article Title](URL) — The **Organization** did **something important** that has **significant impact**.
@@ -36,25 +39,92 @@ Description: {description}
 URL: {url}
 """
 
-# Data Processing Functions
+###########################################
+# DATA LOADING FUNCTIONS
+###########################################
+
+def load_tag_prompts():
+    """
+    Load tag-prompt mapping from tag_prompts.csv
+    
+    Returns:
+        dict: A dictionary mapping tags to their corresponding prompts
+    """
+    tag_prompts = {}
+    try:
+        with open('tag_prompts.csv', 'r', encoding='utf-8') as file:
+            reader = csv.DictReader(file)
+            for row in reader:
+                tag_prompts[row['Tag']] = row['Prompt']
+    except Exception as e:
+        st.error(f"Error loading tag_prompts.csv: {str(e)}")
+    return tag_prompts
+
 def find_column_names(df):
-    """Find the Description and URL columns in the dataframe (case-insensitive)"""
+    """
+    Find the Description, URL, and AI Summary Tag columns in the dataframe (case-insensitive)
+    
+    Args:
+        df (pandas.DataFrame): The dataframe to search
+        
+    Returns:
+        tuple: (description_col, url_col, tag_col) column names
+    """
     description_col = None
     url_col = None
+    tag_col = None
     
     for col in df.columns:
         if col.lower() == 'description':
             description_col = col
         elif col.lower() == 'url':
             url_col = col
+        elif col.lower() == 'ai summary tag':
+            tag_col = col
     
-    return description_col, url_col
+    return description_col, url_col, tag_col
 
-def process_with_gpt4o(description, url, api_key):
-    """Process a single row with GPT-4o"""
+###########################################
+# SUMMARY GENERATION FUNCTIONS
+###########################################
+
+def get_prompt_for_tag(tag, tag_prompts):
+    """
+    Get the appropriate prompt template for a tag
+    
+    Args:
+        tag (str): The tag to look up
+        tag_prompts (dict): Dictionary mapping tags to prompts
+        
+    Returns:
+        str: The prompt template to use
+    """
+    if tag and tag_prompts and tag in tag_prompts:
+        return tag_prompts[tag]
+    return DEFAULT_PROMPT_TEMPLATE
+
+def generate_summary(description, url, api_key, prompt_template):
+    """
+    Generate a summary using OpenAI API with the given prompt template
+    
+    Args:
+        description (str): The article description
+        url (str): The article URL
+        api_key (str): The OpenAI API key
+        prompt_template (str): The prompt template to use
+        
+    Returns:
+        str: The generated summary or error message
+    """
     client = OpenAI(api_key=api_key)
     
-    prompt = PROMPT_TEMPLATE.format(description=description, url=url)
+    # Check if this is the default prompt (has placeholders) or a custom prompt from CSV
+    if "{description}" in prompt_template and "{url}" in prompt_template:
+        # Default prompt with placeholders - use format
+        prompt = prompt_template.format(description=description, url=url)
+    else:
+        # Custom prompt from CSV - append the information
+        prompt = f"{prompt_template}\n\nDescription: {description}\nURL: {url}"
     
     try:
         response = client.chat.completions.create(
@@ -71,7 +141,15 @@ def process_with_gpt4o(description, url, api_key):
         return f"Error: {str(e)}"
 
 def validate_summary(summary):
-    """Validate that a summary is complete and properly formatted"""
+    """
+    Validate that a summary is complete and properly formatted
+    
+    Args:
+        summary (str): The summary to validate
+        
+    Returns:
+        bool: True if the summary is valid, False otherwise
+    """
     # Check if summary contains a URL link
     if not ('[' in summary and '](' in summary and ')' in summary):
         return False
@@ -86,63 +164,82 @@ def validate_summary(summary):
     
     return True
 
-def process_row_with_status(args):
-    """Process a single row and handle validation"""
-    i, description, url, api_key = args
+def process_single_row(row, description_col, url_col, tag_col, api_key, tag_prompts):
+    """
+    Process a single row and return the formatted summary
     
-    # Get formatted summary
-    summary = process_with_gpt4o(description, url, api_key)
+    Args:
+        row (pandas.Series): The row to process
+        description_col (str): The name of the description column
+        url_col (str): The name of the URL column
+        tag_col (str): The name of the tag column (or None)
+        api_key (str): The OpenAI API key
+        tag_prompts (dict): Dictionary mapping tags to prompts
+        
+    Returns:
+        str: The formatted summary or error message
+    """
+    description = row[description_col]
+    url = row[url_col]
+    tag = row.get(tag_col) if tag_col else None
     
-    # Validate summary
+    prompt_template = get_prompt_for_tag(tag, tag_prompts)
+    summary = generate_summary(description, url, api_key, prompt_template)
+    
     if not validate_summary(summary):
         summary = "Invalid summary format. Please try again."
     
-    return i, summary
+    return summary
 
-def process_data(df, description_col, url_col, api_key, status_callback=None):
-    """Process all rows concurrently and return formatted summaries"""
-    total_rows = len(df)
+def process_data(df, description_col, url_col, tag_col, api_key, tag_prompts, status_callback=None):
+    """
+    Process all rows sequentially and return formatted summaries
     
-    # Prepare data for processing
-    row_data = [(i, row[description_col], row[url_col], api_key) 
-                for i, row in df.iterrows()]
-    
-    # Initialize results list with placeholders
-    formatted_summaries = [""] * total_rows
-    completed = 0
-    
-    # Process rows using ThreadPoolExecutor
-    with concurrent.futures.ThreadPoolExecutor(max_workers=10) as executor:
-        # Submit all tasks and process results as they complete
-        future_to_row = {executor.submit(process_row_with_status, args): args 
-                         for args in row_data}
+    Args:
+        df (pandas.DataFrame): The dataframe to process
+        description_col (str): The name of the description column
+        url_col (str): The name of the URL column
+        tag_col (str): The name of the tag column (or None)
+        api_key (str): The OpenAI API key
+        tag_prompts (dict): Dictionary mapping tags to prompts
+        status_callback (function): Callback function for progress updates
         
-        for future in concurrent.futures.as_completed(future_to_row):
-            try:
-                i, summary = future.result()
-                formatted_summaries[i] = summary
-                
-                # Update progress
-                completed += 1
-                if status_callback:
-                    status_callback(completed - 1, total_rows)
-                
-            except Exception as e:
-                # Handle errors
-                i = future_to_row[future][0]
-                formatted_summaries[i] = f"Error: {str(e)}"
-                completed += 1
+    Returns:
+        list: List of formatted summaries
+    """
+    total_rows = len(df)
+    formatted_summaries = []
+    
+    # Process rows sequentially
+    for i, row in df.iterrows():
+        # Process the row
+        summary = process_single_row(row, description_col, url_col, tag_col, api_key, tag_prompts)
+        
+        # Add to results
+        formatted_summaries.append(summary)
+        
+        # Update progress
+        if status_callback:
+            status_callback(i, total_rows)
     
     return formatted_summaries
 
-# UI Rendering Functions
+###########################################
+# UI RENDERING FUNCTIONS
+###########################################
+
 def render_header():
     """Render the app header"""
     st.title("AI Summary Generator")
     st.markdown("Upload a CSV with article descriptions and URLs to generate formatted summaries using GPT-4o.")
 
 def render_input_section():
-    """Render the input section (API key and file upload)"""
+    """
+    Render the input section (API key and file upload)
+    
+    Returns:
+        tuple: (api_key, uploaded_file)
+    """
     # Check if API key is available from environment
     if OPENAI_API_KEY:
         st.success("OpenAI API key loaded from environment variables.")
@@ -158,12 +255,22 @@ def render_input_section():
     return api_key, uploaded_file
 
 def render_preview(df):
-    """Render a preview of the uploaded data"""
+    """
+    Render a preview of the uploaded data
+    
+    Args:
+        df (pandas.DataFrame): The dataframe to preview
+    """
     st.write("Preview of uploaded data:")
     st.dataframe(df.head())
 
 def render_results(formatted_summaries):
-    """Render the formatted summaries"""
+    """
+    Render the formatted summaries
+    
+    Args:
+        formatted_summaries (list): List of formatted summaries
+    """
     st.success("Processing complete!")
     
     # Display formatted summaries in a markdown block
@@ -190,8 +297,9 @@ def render_instructions():
     ### Instructions:
     1. Set the OPENAI_API_KEY environment variable or enter your API key in the field
     2. Upload a CSV file with 'Description' and 'URL' columns
-    3. Click 'Process with GPT-4o' to generate formatted summaries
-    4. Copy the markdown text from the code block to use in your documents
+    3. Optionally include an 'AI Summary Tag' column to use specific prompt templates
+    4. Click 'Process with GPT-4o' to generate formatted summaries
+    5. Copy the markdown text from the code block to use in your documents
     """)
     
     # Add sample format
@@ -205,13 +313,26 @@ def render_instructions():
     # Update sample CSV format information
     st.markdown("### Sample CSV Format:")
     st.code("""
-    Article,URL,Description,Article Date
-    "Trump's Crypto Summit Sets Agenda for U.S. Pivot","https://www.coindesk.com/policy/2025/03/07/trump-s-crypto-summit-sets-agenda-for-u-s-pivot","President Trump hosted a crypto summit at the White House...","March 9, 2025"
-    "Jobs report February 2025:","https://www.cnbc.com/2025/03/07/jobs-report-february-2025.html","Job growth in February 2025 was weaker than expected...","March 9, 2025"
+    Article,URL,Description,Article Date,AI Summary Tag
+    "Trump's Crypto Summit Sets Agenda for U.S. Pivot","https://www.coindesk.com/policy/2025/03/07/trump-s-crypto-summit-sets-agenda-for-u-s-pivot","President Trump hosted a crypto summit at the White House...","March 9, 2025","News"
+    "Jobs report February 2025:","https://www.cnbc.com/2025/03/07/jobs-report-february-2025.html","Job growth in February 2025 was weaker than expected...","March 9, 2025","News"
     """)
+    
+    # Add information about available tags
+    tag_prompts = load_tag_prompts()
+    if tag_prompts:
+        st.markdown("### Available AI Summary Tags:")
+        tags_list = ", ".join([f"'{tag}'" for tag in tag_prompts.keys()])
+        st.markdown(f"The following tags are available: {tags_list}")
 
 def update_progress(current, total):
-    """Update the progress bar and status text"""
+    """
+    Update the progress bar and status text
+    
+    Args:
+        current (int): Current progress (0-based index)
+        total (int): Total number of items
+    """
     progress = st.session_state.get('progress_bar')
     status = st.session_state.get('status_text')
     
@@ -219,8 +340,12 @@ def update_progress(current, total):
         progress.progress((current + 1) / total)
         status.text(f"Processing row {current + 1}/{total}...")
 
-# Main App
+###########################################
+# MAIN APPLICATION
+###########################################
+
 def main():
+    """Main application function"""
     # Render header
     render_header()
     
@@ -242,8 +367,11 @@ def main():
             # Render preview
             render_preview(df)
             
+            # Load tag-prompt mapping
+            tag_prompts = load_tag_prompts()
+            
             # Find column names
-            description_col, url_col = find_column_names(df)
+            description_col, url_col, tag_col = find_column_names(df)
             
             if description_col is None or url_col is None:
                 st.error("CSV must contain 'Description' and 'URL' columns (case insensitive).")
@@ -265,7 +393,9 @@ def main():
                                 df, 
                                 description_col, 
                                 url_col, 
-                                api_key, 
+                                tag_col,
+                                api_key,
+                                tag_prompts,
                                 update_progress
                             )
                             
