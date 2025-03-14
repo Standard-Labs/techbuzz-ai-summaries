@@ -167,7 +167,7 @@ def validate_summary(summary):
 
 def process_single_row(row, description_col, url_col, tag_col, api_key, tag_prompts):
     """
-    Process a single row and return the formatted summary
+    Process a single row and return the formatted summary along with its tag
     
     Args:
         row (pandas.Series): The row to process
@@ -178,7 +178,7 @@ def process_single_row(row, description_col, url_col, tag_col, api_key, tag_prom
         tag_prompts (dict): Dictionary mapping tags to prompts
         
     Returns:
-        str: The formatted summary or error message
+        tuple: (summary, tag) where summary is the formatted summary and tag is the associated tag
     """
     description = row[description_col]
     url = row[url_col]
@@ -190,11 +190,12 @@ def process_single_row(row, description_col, url_col, tag_col, api_key, tag_prom
     if not validate_summary(summary):
         summary = "Invalid summary format. Please try again."
     
-    return summary
+    # Return both the summary and its tag
+    return summary, tag
 
 def process_data(df, description_col, url_col, tag_col, api_key, tag_prompts, status_callback=None):
     """
-    Process rows concurrently using ThreadPoolExecutor and return formatted summaries
+    Process rows concurrently using ThreadPoolExecutor and return formatted summaries grouped by tag
     
     Args:
         df (pandas.DataFrame): The dataframe to process
@@ -206,7 +207,7 @@ def process_data(df, description_col, url_col, tag_col, api_key, tag_prompts, st
         status_callback (function): Callback function for progress updates
         
     Returns:
-        list: List of formatted summaries
+        dict: Dictionary mapping tags to lists of formatted summaries
     """
     total_rows = len(df)
     completed = 0
@@ -217,14 +218,14 @@ def process_data(df, description_col, url_col, tag_col, api_key, tag_prompts, st
         i, row = row_tuple
         
         # Process the row
-        summary = process_single_row(row, description_col, url_col, tag_col, api_key, tag_prompts)
+        summary, tag = process_single_row(row, description_col, url_col, tag_col, api_key, tag_prompts)
         
         # Update progress (thread-safe way)
         if status_callback:
             completed += 1
             status_callback(completed-1, total_rows)
             
-        return summary
+        return summary, tag
     
     # Use ThreadPoolExecutor to process rows concurrently
     with concurrent.futures.ThreadPoolExecutor() as executor:
@@ -234,10 +235,20 @@ def process_data(df, description_col, url_col, tag_col, api_key, tag_prompts, st
         # Use executor.map to process rows concurrently
         results = executor.map(process_with_progress, row_tuples)
         
-        # Collect results
-        formatted_summaries = list(results)
+        # Collect results and organize by tag
+        summaries_by_tag = {}
+        for summary, tag in results:
+            # Use "Untagged" as the default tag if none is provided
+            tag_key = tag if tag else "Untagged"
+            
+            # Initialize the list for this tag if it doesn't exist
+            if tag_key not in summaries_by_tag:
+                summaries_by_tag[tag_key] = []
+                
+            # Add the summary to the appropriate tag list
+            summaries_by_tag[tag_key].append(summary)
     
-    return formatted_summaries
+    return summaries_by_tag
 
 ###########################################
 # UI RENDERING FUNCTIONS
@@ -279,27 +290,42 @@ def render_preview(df):
     st.write("Preview of uploaded data:")
     st.dataframe(df.head())
 
-def render_results(formatted_summaries):
+def render_results(summaries_by_tag):
     """
-    Render the formatted summaries
+    Render the formatted summaries categorized by tag
     
     Args:
-        formatted_summaries (list): List of formatted summaries
+        summaries_by_tag (dict): Dictionary mapping tags to lists of formatted summaries
     """
     st.success("Processing complete!")
     
     # Display formatted summaries in a markdown block
-    st.markdown("### Formatted Summaries:")
+    st.markdown("### Formatted Summaries by Tag:")
     
-    # Create a string with all formatted summaries
-    all_summaries = "\n\n".join(formatted_summaries)
+    # Create a string with all formatted summaries categorized by tag
+    all_summaries_text = []
     
     # Display in a container
     formatted_container = st.container(border=True)
     with formatted_container:
-        for summary in formatted_summaries:
-            st.markdown(summary)
-            st.markdown("\n\n")
+        # Sort tags alphabetically for consistent display
+        for tag in sorted(summaries_by_tag.keys()):
+            # Add tag subtitle
+            st.markdown(f"## {tag}")
+            all_summaries_text.append(f"## {tag}")
+            
+            # Add summaries for this tag
+            for summary in summaries_by_tag[tag]:
+                st.markdown(summary)
+                st.markdown("\n\n")
+                all_summaries_text.append(summary)
+                all_summaries_text.append("")  # Add empty line between summaries
+            
+            # Add extra space between tag sections
+            all_summaries_text.append("")
+    
+    # Combine all text for the code block
+    all_summaries = "\n".join(all_summaries_text)
     
     # Add a code block for easy copying
     st.code(all_summaries, language="markdown")
@@ -404,7 +430,7 @@ def main():
                         
                         # Process data
                         with st.spinner("Processing data with GPT-4o..."):
-                            formatted_summaries = process_data(
+                            summaries_by_tag = process_data(
                                 df, 
                                 description_col, 
                                 url_col, 
@@ -415,7 +441,7 @@ def main():
                             )
                             
                             # Render results
-                            render_results(formatted_summaries)
+                            render_results(summaries_by_tag)
         except Exception as e:
             st.error(f"Error processing file: {str(e)}")
     else:
