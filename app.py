@@ -5,6 +5,7 @@ import os
 from openai import OpenAI
 from dotenv import load_dotenv
 import csv
+import concurrent.futures
 
 # Load environment variables from .env file
 load_dotenv()
@@ -193,7 +194,7 @@ def process_single_row(row, description_col, url_col, tag_col, api_key, tag_prom
 
 def process_data(df, description_col, url_col, tag_col, api_key, tag_prompts, status_callback=None):
     """
-    Process all rows sequentially and return formatted summaries
+    Process rows concurrently using ThreadPoolExecutor and return formatted summaries
     
     Args:
         df (pandas.DataFrame): The dataframe to process
@@ -208,19 +209,33 @@ def process_data(df, description_col, url_col, tag_col, api_key, tag_prompts, st
         list: List of formatted summaries
     """
     total_rows = len(df)
-    formatted_summaries = []
+    completed = 0
     
-    # Process rows sequentially
-    for i, row in df.iterrows():
+    # Define a wrapper function to handle progress updates
+    def process_with_progress(row_tuple):
+        nonlocal completed
+        i, row = row_tuple
+        
         # Process the row
         summary = process_single_row(row, description_col, url_col, tag_col, api_key, tag_prompts)
         
-        # Add to results
-        formatted_summaries.append(summary)
-        
-        # Update progress
+        # Update progress (thread-safe way)
         if status_callback:
-            status_callback(i, total_rows)
+            completed += 1
+            status_callback(completed-1, total_rows)
+            
+        return summary
+    
+    # Use ThreadPoolExecutor to process rows concurrently
+    with concurrent.futures.ThreadPoolExecutor() as executor:
+        # Create an enumerated list of rows to keep track of indices
+        row_tuples = list(df.iterrows())
+        
+        # Use executor.map to process rows concurrently
+        results = executor.map(process_with_progress, row_tuples)
+        
+        # Collect results
+        formatted_summaries = list(results)
     
     return formatted_summaries
 
