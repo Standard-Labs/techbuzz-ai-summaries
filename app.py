@@ -196,6 +196,7 @@ def process_single_row(row, description_col, url_col, tag_col, api_key, tag_prom
 def process_data(df, description_col, url_col, tag_col, api_key, tag_prompts, status_callback=None):
     """
     Process rows concurrently using ThreadPoolExecutor and return formatted summaries grouped by tag
+    Ignores rows with empty or non-string type tags
     
     Args:
         df (pandas.DataFrame): The dataframe to process
@@ -217,6 +218,17 @@ def process_data(df, description_col, url_col, tag_col, api_key, tag_prompts, st
         nonlocal completed
         i, row = row_tuple
         
+        # Check if tag is valid (not None/NaN and is a string)
+        if tag_col and tag_col in row:
+            tag = row[tag_col]
+            # Skip rows with empty or non-string tags
+            if pd.isna(tag) or not isinstance(tag, str):
+                # Update progress but return None to indicate this row should be skipped
+                if status_callback:
+                    completed += 1
+                    status_callback(completed-1, total_rows)
+                return None
+        
         # Process the row
         summary, tag = process_single_row(row, description_col, url_col, tag_col, api_key, tag_prompts)
         
@@ -233,7 +245,10 @@ def process_data(df, description_col, url_col, tag_col, api_key, tag_prompts, st
         row_tuples = list(df.iterrows())
         
         # Use executor.map to process rows concurrently
-        results = executor.map(process_with_progress, row_tuples)
+        results = list(executor.map(process_with_progress, row_tuples))
+        
+        # Filter out None results (skipped rows)
+        results = [r for r in results if r is not None]
         
         # Collect results and organize by tag
         summaries_by_tag = {}
