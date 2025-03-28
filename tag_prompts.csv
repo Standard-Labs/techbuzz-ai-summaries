@@ -1,6 +1,6 @@
 Tag,Prompt
-News,"**Shorten and summarize each separate story into one and a half lines including all the key information concisely in the following format. And remove UTM trackers from urls.**
-EXAMPLES:
+News,"**Shorten and summarize each separate story into 30-40 words for the techbuzz newsletter snippets. Including all the key information concisely in the exact format below. Create a short, catchy engaging title, then a summary of the key news. AND bold all names, figures and keywords. And remove UTM trackers from urls.**
+PAST EXAMPLES of the tone and format we desire:
 [If It Looks Like a bank…](https://techcrunch.com/2024/11/21/apple-pay-paypal-cash-app-will-be-treated-more-like-banks/)** — The **CFPB** just ruled that **any digital service** that handles a significant number of transactions (eg. **Apple**, **Paypal**) should be subject to **bank-like oversight**.
 
 [**AI Boon Continues**](https://www.bloomberg.com/news/articles/2024-11-20/nvidia-forecast-fails-to-meet-the-loftiest-estimates-for-ai-star) — **Nvidia** beats **Q3** earnings but falls short of highest estimates. Forecasts show continued AI-driven growth of **70%** for Q4 as new chips begin to ship.
@@ -12,8 +12,8 @@ EXAMPLES:
 [**Adani Charged**](https://www.ft.com/content/cab2e834-e5fa-4dd0-b757-76c243ac2eeb) — India’s richest man, billionaire **Gautam Adani**, faces federal charges over alleged **bribes** for contracts and **concealing payments** from US banks.
 
 INPUT:"
-Company to Watch,"**Shorten and summarize into one and a half lines including all the key information concisely in this exact format. And remove UTM trackers from urls.**
-EXAMPLES:
+Company to Watch,"**Shorten and summarize each separate company to watch into 30-50 words for the techbuzz newsletter snippets. Including all the key information concisely in the exact format below. Use the company name as the title, then mention what the companies' core business is and where the company is located, then give a brief summary of the key news or reasons the company is one to watch. If possible include ARR and other revenue details or recent deals, partnerships or other signals meaning the company is growing fast and going to be successful. AND bold all names, figures and keywords. And remove UTM trackers from urls.**
+PAST EXAMPLES of the tone and format we desire:
 [**GlobalFoundries**](https://www.reuters.com/technology/us-finalizes-15-billion-chips-award-globalfoundries-expand-production-2024-11-20/) — Finalized a **$1.5B** chips subsidy to expand its semiconductor production in NY and VT. The company is investing **$13B** over **10+** years in US sites serving various tech sectors.
 
 [**Rain AI**](https://nypost.com/2024/11/19/business/sam-altman-seeks-backers-for-ai-chipmaker-to-challenge-nvidia-source/) — **Sam Altman** is reportedly leading a **$150M round** at ~**$600M** for the chip startup, hoping to position it as a potential rival to **Nvidia**. Altman was a major investor in Rain’s 2022 **$25M seed** round.
@@ -23,8 +23,8 @@ EXAMPLES:
 [**BlackRock Bitcoin ETF**](https://www.coindesk.com/markets/2024/11/20/bitcoin-etf-options-attract-2b-on-day-one-shifting-btcs-market-structure/) — The **IBIT** options launch saw **$1.9B** of exposure on day one with **4.4:1** calls to puts ratio, amid **Bitcoin** hitting **$94,700**.
 
 INPUT:"
-Crypto News,"**Shorten and summarize into one and a half lines including all the key information concisely in this exact format. And remove UTM trackers from urls.**
-EXAMPLES:
+Crypto News,"**Shorten and summarize each separate story into 30-40 words for the techbuzz newsletter snippets. Including all the key information concisely in the exact format below. Create a short, catchy engaging title, then a summary of the key news. AND bold all names, figures and keywords. And remove UTM trackers from urls.**
+PAST EXAMPLES of the tone and format we desire:
 [**GlobalFoundries**](https://www.reuters.com/technology/us-finalizes-15-billion-chips-award-globalfoundries-expand-production-2024-11-20/) — Finalized a **$1.5B** chips subsidy to expand its semiconductor production in NY and VT. The company is investing **$13B** over **10+** years in US sites serving various tech sectors.
 
 [**Rain AI**](https://nypost.com/2024/11/19/business/sam-altman-seeks-backers-for-ai-chipmaker-to-challenge-nvidia-source/) — **Sam Altman** is reportedly leading a **$150M round** at ~**$600M** for the chip startup, hoping to position it as a potential rival to **Nvidia**. Altman was a major investor in Rain’s 2022 **$25M seed** round.
@@ -34,8 +34,8 @@ EXAMPLES:
 [**BlackRock Bitcoin ETF**](https://www.coindesk.com/markets/2024/11/20/bitcoin-etf-options-attract-2b-on-day-one-shifting-btcs-market-structure/) — The **IBIT** options launch saw **$1.9B** of exposure on day one with **4.4:1** calls to puts ratio, amid **Bitcoin** hitting **$94,700**.
 
 INPUT:"
-Massive Deals,"Shorten and summarize each deal into one and a half lines including all the key information concisely in the precise following format. And remove UTM trackers from urls.**
-EXAMPLES:
+Massive Deals,"**Shorten and summarize each separate company to watch into 30-50 words for the techbuzz newsletter snippets. Including all the key information concisely in the exact format below. Use the company name as the title, then mention what the companies' core business is and where the company is located, then give a brief summary of the amount raised in the latest round, listing some of the notable backers and the valuation raised at if available, as well as any other key information. AND bold all names, figures and keywords. And remove UTM trackers from urls.**
+PAST EXAMPLES of the tone and format we desire:
 [**xAI**](https://www.wsj.com/tech/ai/elon-musks-startup-xai-valued-at-50-billion-in-new-funding-round-7e3669dc) — **Elon Musk**'s AI startup raised a further **$5B** at a **$50B** valuation, with investors including **Qatar Investment Authority**, **Valor Equity**, **Sequoia**, and **Andreessen Horowitz**. It was valued at **$24B** when it raised **$6B** in the spring.
 
 [**Anthropic**](https://www.aboutamazon.com/news/aws/amazon-invests-additional-4-billion-anthropic-ai) — **Amazon** invested an additional **$4B** in the AI startup, making **AWS** their primary training partner for AI model development and deployment, with early access to fine-tuning capabilities for AWS customers.
@@ -43,8 +43,9 @@ EXAMPLES:
 [**Cyera**](https://www.cyera.io/blog/a-big-step-forward-for-cyera-300m-series-d-to-drive-the-future-of-data-security) — The NY/Israeli **data security** startup, secured a **$300M** **Series D** at **$3B** valuation, led by **Accel** and **Sapphire**, with participation from **Sequoia**, **Redpoint**, **Coatue**, and **Georgian**.
 
 INPUT:"
-Large Deals,"Shorten and summarize each deal into one and a half lines including all the key information concisely in the precise following format. And remove UTM trackers from urls.**
-EXAMPLES
+Large Deals,"**Shorten and summarize each separate company to watch into 30-50 words for the techbuzz newsletter snippets. Including all the key information concisely in the exact format below. Use the company name as the title, then mention what the companies' core business is and where the company is located, then give a brief summary of the amount raised in the latest round, listing some of the notable backers and the valuation raised at if available, as well as any other key information. AND bold all names, figures and keywords. And remove UTM trackers from urls.**
+PAST EXAMPLES of the tone and format we desire:
+
 [**xAI**](https://www.wsj.com/tech/ai/elon-musks-startup-xai-valued-at-50-billion-in-new-funding-round-7e3669dc) — **Elon Musk**'s AI startup raised a further **$5B** at a **$50B** valuation, with investors including **Qatar Investment Authority**, **Valor Equity**, **Sequoia**, and **Andreessen Horowitz**. It was valued at **$24B** when it raised **$6B** in the spring.
 
 [**Anthropic**](https://www.aboutamazon.com/news/aws/amazon-invests-additional-4-billion-anthropic-ai) — **Amazon** invested an additional **$4B** in the AI startup, making **AWS** their primary training partner for AI model development and deployment, with early access to fine-tuning capabilities for AWS customers.
@@ -52,8 +53,9 @@ EXAMPLES
 [**Cyera**](https://www.cyera.io/blog/a-big-step-forward-for-cyera-300m-series-d-to-drive-the-future-of-data-security) — The NY/Israeli **data security** startup, secured a **$300M** **Series D** at **$3B** valuation, led by **Accel** and **Sapphire**, with participation from **Sequoia**, **Redpoint**, **Coatue**, and **Georgian**.
 
 INPUT:"
-Small Deals,"Shorten and summarize each deal into one and a half lines including all the key information concisely in the precise following format. And remove UTM trackers from urls.**
-EXAMPLES:
+Small Deals,"**Shorten and summarize each separate company to watch into 30-50 words for the techbuzz newsletter snippets. Including all the key information concisely in the exact format below. Use the company name as the title, then mention what the companies' core business is and where the company is located, then give a brief summary of the amount raised in the latest round, listing some of the notable backers and the valuation raised at if available, as well as any other key information. AND bold all names, figures and keywords. And remove UTM trackers from urls.**
+PAST EXAMPLES of the tone and format we desire:
+
 [**xAI**](https://www.wsj.com/tech/ai/elon-musks-startup-xai-valued-at-50-billion-in-new-funding-round-7e3669dc) — **Elon Musk**'s AI startup raised a further **$5B** at a **$50B** valuation, with investors including **Qatar Investment Authority**, **Valor Equity**, **Sequoia**, and **Andreessen Horowitz**. It was valued at **$24B** when it raised **$6B** in the spring.
 
 [**Anthropic**](https://www.aboutamazon.com/news/aws/amazon-invests-additional-4-billion-anthropic-ai) — **Amazon** invested an additional **$4B** in the AI startup, making **AWS** their primary training partner for AI model development and deployment, with early access to fine-tuning capabilities for AWS customers.
@@ -61,8 +63,9 @@ EXAMPLES:
 [**Cyera**](https://www.cyera.io/blog/a-big-step-forward-for-cyera-300m-series-d-to-drive-the-future-of-data-security) — The NY/Israeli **data security** startup, secured a **$300M** **Series D** at **$3B** valuation, led by **Accel** and **Sapphire**, with participation from **Sequoia**, **Redpoint**, **Coatue**, and **Georgian**.
 
 INPUT:"
-Closed Deals,"Shorten and summarize each deal into one and a half lines including all the key information concisely in the precise following format. And remove UTM trackers from urls.**
-EXAMPLES:
+Closed Deals,"**Shorten and summarize each separate company to watch into 30-50 words for the techbuzz newsletter snippets. Including all the key information concisely in the exact format below. Use the company name as the title, then mention what the companies' core business is and where the company is located, then give a brief summary of the amount raised in the latest round, listing some of the notable backers and the valuation raised at if available, as well as any other key information. AND bold all names, figures and keywords. And remove UTM trackers from urls.**
+PAST EXAMPLES of the tone and format we desire:
+
 [**xAI**](https://www.wsj.com/tech/ai/elon-musks-startup-xai-valued-at-50-billion-in-new-funding-round-7e3669dc) — **Elon Musk**'s AI startup raised a further **$5B** at a **$50B** valuation, with investors including **Qatar Investment Authority**, **Valor Equity**, **Sequoia**, and **Andreessen Horowitz**. It was valued at **$24B** when it raised **$6B** in the spring.
 
 [**Anthropic**](https://www.aboutamazon.com/news/aws/amazon-invests-additional-4-billion-anthropic-ai) — **Amazon** invested an additional **$4B** in the AI startup, making **AWS** their primary training partner for AI model development and deployment, with early access to fine-tuning capabilities for AWS customers.
@@ -70,8 +73,9 @@ EXAMPLES:
 [**Cyera**](https://www.cyera.io/blog/a-big-step-forward-for-cyera-300m-series-d-to-drive-the-future-of-data-security) — The NY/Israeli **data security** startup, secured a **$300M** **Series D** at **$3B** valuation, led by **Accel** and **Sapphire**, with participation from **Sequoia**, **Redpoint**, **Coatue**, and **Georgian**.
 
 INPUT:"
-Exit Watching,"Shorten and summarize into one and a half lines including all the key information concisely in the exact format. And remove UTM trackers from urls.**
-EXAMPLES:
+Exit Watching,"**Shorten and summarize each separate company to watch into 30-50 words for the techbuzz newsletter snippets. Include all the key information concisely in the exact format below. Use the company name as the title, then mention what the companies' core business is and where the company is located, then give a brief summary of the aquisition deal, sale, or IPO and the valuation, as well as any other key information. AND bold all names, figures and keywords. And remove UTM trackers from urls.**
+PAST EXAMPLES of the tone and format we desire:
+
 [**TradePMR**](https://newslink.reuters.com/click/37536989.37500/aHR0cHM6Ly93d3cucmV1dGVycy5jb20vbWFya2V0cy9kZWFscy9yb2Jpbmhvb2QtYWNxdWlyZS10cmFkZXBtci0zMDAtbWxuLWJvb3N0LWFkdmlzb3J5LWJ1c2luZXNzLTIwMjQtMTEtMTkvP3V0bV9zb3VyY2U9U2FpbHRocnUmdXRtX21lZGl1bT1OZXdzbGV0dGVyJnV0bV9jYW1wYWlnbj1UZWNobm9sb2d5LVJvdW5kdXAmdXRtX3Rlcm09MTExOTI0JmxjdGc9NjRkNDNmZDIyMGI2YjIxYzQzMGJlZTIy/64d43fd220b6b21c430bee22B1ffff388) — Robinhood will acquire the registered investment advisers (RIAs) company with **$40B AUM** for approximately **$300M** in a **cash-and-stock** deal to enhance its advisory business.
 
 [**BlueHalo**](https://bluehalo.com/aerovironment-to-acquire-bluehalo/) — The Defense contractor **AeroVironment** will acquire defense tech company **BlueHalo** from Arlington Capital in a **$4.1B** deal, including a **$1.4B Space Force contract**; **Arlington** will retain significant stake.
@@ -79,8 +83,8 @@ EXAMPLES:
 [**McIntosh Group**](https://www.bose.com/pressroom/bose-acquires-mcintosh-group-announcement) — Audio giant **Bose** is acquiring the parent of **McIntosh** and **Sonus Faber** hi-fi brands with a focus on improving its **automotive sector** audio business.
 
 INPUT:"
-Funding Buzz,"**Shorten and summarize each deal into one and a half lines including all the key information concisely using the following format. And remove UTM trackers from urls.**
-EXAMPLES:
+Funding Buzz,"Shorten and summarize each separate company to watch into 30-50 words for the techbuzz newsletter snippets. Include all the key information concisely in the exact format below. Use the company name as the title, then mention where the Firm is located, what type of firm it is (VC, PE, state, corporate), what investment areas it focuses on, then give a brief summary of the VC fund raise, the amount, what areas the firms will invest in, as well as any other key information. AND bold all names, figures and keywords. And remove UTM trackers from urls.**
+PAST EXAMPLES of the tone and format we desire:
 [**Gilroy & Rajaram**](https://techcrunch.com/2024/11/22/gilroy-former-coatue-fintech-head-and-angel-investor-rajaram-launch-vc-firm/) — Former **Coatue** investor **Michael Gilroy** and tech exec **Gokul Rajaram** will raise a **$400-500M** **debut fund** for a new VC firm to back U.S.-based early-stage **fintech** and **software** startups.
 
 [**Michelle Volz**](https://deepnewz.com/vc/michelle-volz-launches-security-fund-space-defense-investments-surge-71aa44c9) — The **Andreessen Horowitz** partner on the **American Dynamism** team, is leaving to start her own **National security** **fund** targeting **$50M** to back **pre-seed** & **seed** startups in **defense**, **aerospace**, **manufacturing** and **industrials**.
@@ -90,8 +94,8 @@ EXAMPLES:
 [**GitHub**](https://techcrunch.com/2024/11/19/github-launches-1-25m-open-source-fund-with-a-focus-on-security/) — The **Microsoft**-owned platform launched a **$1.25M** **fund** for **open source** projects with a focus on security. It’s backed by **American Express**, **Shopify**, & **Stripe**.
 
 INPUT:"
-Buzzy Tools,"**Shorten and summarize each tool into half a line of text including all the key information concisely in the following format. And remove UTM trackers from urls.**
-EXAMPLES:
+Buzzy Tools,"**Shorten and summarize each tool into no more than 15 words of text, including the most crucial information about the new tool concisely in the following format. Include company or tool name as the title, then briefly outline why the tool is novel or groundbreaking. AND bold all names, figures and keywords. And remove UTM trackers from urls.**
+PAST EXAMPLES: 
 [Google](https://x.com/GeminiApp/status/1858929151476199591)** — New Gemini AI memory feature for personalized interactions.
 
 [**Numenta**](https://www.reuters.com/technology/artificial-intelligence/numenta-backed-by-gates-foundation-releases-open-source-ai-model-2024-11-20/) — O-S AI model backed by **Gates Found.** for energy efficient AI machines.
@@ -101,8 +105,8 @@ EXAMPLES:
 [**DeepSeek-R1**](https://techcrunch.com/2024/11/20/a-chinese-lab-has-released-a-model-to-rival-openais-o1/) — Chinese lab releases preview “**reasoning**” model rivaling **OAI**’s **o1**.
 
 INPUT:"
-Buzzy Tech,"**Shorten and summarize each technology story into around half a line of text including all the key information concisely in the following format. And remove UTM trackers from urls.**
-EXAMPLES:
+Buzzy Tech,"**Shorten and summarize each technology development into no more than 15 words of text, including the most crucial information about the new tech concisely in the following format. Include company or technology name as the title, then briefly outline why the technology is novel or groundbreaking. AND bold all names, figures and keywords. And remove UTM trackers from urls.**
+PAST EXAMPLES: 
 [**Cancer Kill Switch**](https://lifeboat.com/blog/2025/01/researchers-find-a-cancer-kill-switch-that-could-replace-chemotherapy) — Breakthrough **cell defense mechanism** may replace **chemo**.
 
 [**DNA Nanorobots**](https://phys.org/news/2025-01-dna-nanorobots-artificial-cells-tool.html) — Artificial **cell altering bots** offer new synthetic biology tool.
@@ -114,7 +118,7 @@ EXAMPLES:
 [**Robobus**](https://interestingengineering.com/transportation/china-robobus-begins-ops-at-zurich-airport) — 1st Europe **driverless shuttle** service starts in Zurich by China’s **WeRide**
 
 INPUT:"
-Space,"**Shorten and summarize each technology story into around half a line of text including all the key information concisely in the following format. And remove UTM trackers from urls.**
+Space,"**Shorten and summarize each technology story into around half a line of text including all the key information concisely in the following format. AND bold all names, figures and keywords. And remove UTM trackers from urls.**
 EXAMPLES:
 [**Blue Origin**](https://techcrunch.com/2025/01/13/blue-origin-delays-launch-of-new-glenn-mega-rocket)_Postponed the inaugural launch of its first orbital rocket, **New Glenn**
 
@@ -123,77 +127,63 @@ EXAMPLES:
 [**Space Factories**](https://interestingengineering.com/space/space-factories-closer-to-reality)_ Off-world factories a step closer with **3D printing tech** progress.
 
 INPUT:"
-Consumer Tech,"**Shorten and summarize each story into one and a half lines including all the key information concisely in the following format. And remove UTM trackers from urls.**
-EXAMPLES:
-[**B&O's Premium Buds**](https://www.engadget.com/audio/headphones/bang--olufsen-reveals-its-latest-premium-earbuds-the-499-beoplay-eleven-154913102.html) — The new $499 Beoplay Eleven earbuds feature jewelry-inspired design with polished aluminum finish, AirPods-style stems, and Qi wireless charging.
+Consumer Tech,"""**Shorten and summarize each separate story into 30-40 words for the techbuzz newsletter snippets. Including all the key information concisely in the exact format below. Create a short, catchy engaging title, then a summary of the key news. AND bold all names, figures and keywords. And remove UTM trackers from urls.**
+PAST EXAMPLES of the tone and format we desire:
 
-[**VR Headsets Guide 2024**](https://www.engadget.com/ar-vr/best-vr-headsets-140012529.html) — The latest VR headsets offer more than gaming, featuring immersive workouts, virtual tourism, museums, and social spaces. Perfect for experiencing new worlds from home.
+[**B&O's Premium Buds**](https://www.engadget.com/audio/headphones/bang--olufsen-reveals-its-latest-premium-earbuds-the-499-beoplay-eleven-154913102.html) — The new **$499 Beoplay Eleven** earbuds feature jewelry-inspired design with polished aluminum finish, **AirPods**-style stems, and Qi wireless charging.
 
-[**Cadillac Goes Electric**](https://www.engadget.com/transportation/evs/cadillac-reveals-the-2026-vistiq-ev-suv-191557412.html) — The 2026 Vistiq, a three-row luxury EV SUV starting at $78,790, features 615hp, 300-mile range, and V2H charging capability to power homes during outages.
+[**VR Headsets Guide 2024**](https://www.engadget.com/ar-vr/best-vr-headsets-140012529.html) — The latest **VR headsets** offer more than gaming, featuring immersive workouts, virtual tourism, museums, and social spaces. Perfect for experiencing new worlds from home.
 
-INPUT:"
-Food/Drink,"**Shorten and summarize each story into one and a half lines including all the key information concisely in the following format. And remove UTM trackers from urls.**
-EXAMPLES:
-[**New NY Restaurants**](https://www.nytimes.com/2024/11/26/dining/nyc-restaurant-news.html) — Blue Blossom offers modern interpretations of regional Chinese dishes, Le Basque offers vegan takes on classic Basque/French dishes, and Armani/Ristorante serves upscale Italian cuisine in style.
+[**Cadillac Goes Electric**](https://www.engadget.com/transportation/evs/cadillac-reveals-the-2026-vistiq-ev-suv-191557412.html) — The **2026 Vistiq**, a three-row luxury EV SUV starting at **$78,790**, features 615hp, 300-mile range, and V2H charging capability to power homes during outages.
 
-[**The Botanist Islay Dry Gin**](https://www.bevindustry.com/articles/97091-the-botanist-islay-dry-gin-distillers-strength-gin) — Distiller’s Strength, is The Botanist’s ultra-premium, high-strength gin crafted by the experts at Bruichladdich Distillery.
+INPUT:"""
+Food/Drink,"**Shorten and summarize each separate story into 30-40 words for the techbuzz newsletter snippets. Including all the key information concisely in the exact format below. Create a short, catchy engaging title, then a summary of the key news. AND bold all names, figures and keywords. And remove UTM trackers from urls.**
+PAST EXAMPLES of the tone and format we desire:  
 
-[**Pumpkin Pie Recipes**](https://www.nytimes.com/2024/11/23/dining/pumpkin-pie-thanksgiving-recipes.html) — The best Thanksgiving pies for 2024, including Melissa Clark’s brandied pumpkin pie, a NYT classic with five stars and over 2,000 reviews.
+[New NY Restaurants](https://www.nytimes.com/2024/11/26/dining/nyc-restaurant-news.html) — **Blue Blossom** offers modern interpretations of regional Chinese dishes, Le Basque offers vegan takes on classic **Basque/French dishes**, and **Armani/Ristorante** serves **upscale Italian** cuisine in style.
 
-[**Cafe Sebastian**](https://www.7x7.com/all-day-restaurants-san-francisco-2669960306.html) — The newly opened Cafe at Transamerica Pyramid joins a select group of versatile restaurants offering full-service dining from morning to night, including Pinecrest Diner and Il Parco.
+[The Botanist Islay Dry Gin](https://www.bevindustry.com/articles/97091-the-botanist-islay-dry-gin-distillers-strength-gin) — **Distiller’s Strength**, is **The Botanist**’s ultra-premium, high-strength gin crafted by the experts at **Bruichladdich Distillery**.
 
-[**AI Recipes**](https://techcrunch.com/2024/11/25/pestle-recipe-app-can-now-save-dishes-from-tiktok/) — Recipe app Pestle is rolling out a new feature that uses AI to turn TikTok cooking videos into step-by-step recipes, adding to its Reels feature.
-
-[**The Jazz Café**](https://www.latimes.com/food/story/2024-11-22/jazz-club-cipriani-beverly-hills-curtis-stone-pie-room) — The Cipriani Beverly Hills-based club offers live music, a full bar, and a menu featuring Cipriani classics featuring jazz in a stylish setting reminiscent of Hollywood's Golden Era.
+[Pumpkin Pie Recipes](https://www.nytimes.com/2024/11/23/dining/pumpkin-pie-thanksgiving-recipes.html) — The best **Thanksgiving pies** for 2024, including **Melissa Clark**’s brandied pumpkin pie, a NYT classic with five stars and over 2,000 reviews.
 
 INPUT:"
-Art/Culture,"**Shorten and summarize each story into one and a half lines including all the key information concisely in the following format. And remove UTM trackers from urls.**
-EXAMPLES:
-[**""The Singularity Is Nearer""**](https://www.nytimes.com/2024/06/26/books/review/ray-kurzweil-the-singularity-is-nearer.html) — AI visionary Ray Kurzweil’s latest is a follow-up to his 2000s bestseller, exploring the future of AI, predicting nanobots will merge with humans to enhance intelligence and health.
+Sports,"**Shorten and summarize each separate story into 30-40 words for the techbuzz newsletter snippets. Including all the key information concisely in the exact format below. AND bold all names, figures and keywords. Create a short, catchy engaging title, then a summary of the key news. And remove UTM trackers from urls.**
+PAST EXAMPLES of the tone and format we desire:
 
-[**Sunset Boulevard**](https://www.nytimes.com/2024/11/22/theater/sunset-boulevard-broadway-outdoor.html) — NYT Magazine does a deep dive into how the Broadway show pulls off a scene that has the cast take to the actual streets of NYC during every performance.
-
-[**Coachella 2025**](https://www.billboard.com/media/podcasts/2025-coachella-lineup-missy-elliott-charli-xcx-pop-shop-podcast-1235839710/) — The 2025 Coachella lineup) was unveiled last week, with Lady Gaga, Post Malone, Green Day and Travis Scott headlining and support from Missy Elliott & Charli XCX.
-
-[**Burning Man’s Budget Shortfall**](https://www.billboard.com/pro/burning-man-ceo-ticket-prices-fundraising-2025-event-interview/) — CEO, Marian Goodell published an urgent request to the global Burner community for $20M in charitable donations by end of the year to avoid ticket price rises for future events.
-
-INPUT:"
-Sports,"**Shorten and summarize each story into one and a half lines including all the key information concisely in the following format. And remove UTM trackers from urls.**
-EXAMPLES:
 [**ESPN-MLB Split**](https://edition.cnn.com/2025/02/20/sport/espn-mlb-end-relationship-spt/index.html) — **ESPN** and **MLB** will end their partnership after 2025 due to **rights fee** **disputes**; MLB seeks new deals amid rising attendance while ESPN eyes other summer sports.
 
 [**Jordan's Healthcare**](https://www.good.is/nba-legend-michael-jordan-opens-up-fourth-north-carolina-health-clinic-for-the-uninsured) — **Michael Jordan** opened a fourth NC **health clinic** for uninsured patients, expanding access to essential primary care services following previous successes.
 
 [**PGA-PIF Talks**](https://www.espn.com/golf/story/_/id/43935370/sources-monahan-tiger-scott-visit-white-house-talk-merger) — The **PGA** Tour's **Monahan**, Tiger Woods, and others met White House officials for **Saudi PIF** tour merger discussions described as ""constructive"".
 
-[**4 Nations Final**](https://www.nhl.com/news/4-nations-face-off-live-blog-canada-united-states-february-20-2025) — **Team Canada** defeated the U.S. in an overtime thriller at the **4 Nations Face-Off**; Connor McDavid netted the winner in a 3-2 victory with stellar goaltending on both sides.
+INPUT:"
+Futurism,"**Shorten and summarize each separate story into 30-40 words for the techbuzz newsletter snippets. Including all the key information concisely in the exact format below. Create a short, catchy engaging title, then a summary of the key news. AND bold all names, figures and keywords. And remove UTM trackers from urls.**
+PAST EXAMPLES of the tone and format we desire:
+
+[Nano-Scale Dinosaur](https://www.theguardian.com/environment/2024/nov/27/nano-scale-dinosaur-made-by-australian-researchers-from-dna-building-blocks) — Researchers use **DNA** building blocks to create structures **thousands of times** narrower than a human hair, with future uses in nanobot tech.
+
+[Quantum Light Computing](https://www.nature.com/articles/d41586-024-03827-y) — **PsiQuantum** aims to build a giant **light-based quantum computer** by 2027, having raised $1B, though some scientists remain skeptical of their ambitious claims.
+
+[Neuralink's Next Step](https://www.wired.com/story/neuralink-robotic-arm-controlled-by-mind/) — **Neuralink** receives approval to test **brain chip-controlled robotic arm**, expanding beyond their current two-patient trial of computer control, while also gaining Canadian approval for clinical trials.
 
 INPUT:"
-Futurism,"**Shorten and summarize each story into one and a half lines including all the key information concisely in the following format. And remove UTM trackers from urls.**
-EXAMPLES:
-[**Nano-Scale Dinosaur**](https://www.theguardian.com/environment/2024/nov/27/nano-scale-dinosaur-made-by-australian-researchers-from-dna-building-blocks) — Researchers use DNA building blocks to create structures thousands of times narrower than a human hair, with future uses in nanobot tech.
+Wellness,"**Shorten and summarize each separate story into 30-40 words for the techbuzz newsletter snippets. Including all the key information concisely in the exact format below. Create a short, catchy engaging title, then a summary of the key news. AND bold all names, figures and keywords. And remove UTM trackers from urls.**
+PAST EXAMPLES of the tone and format we desire:
 
-[**Quantum Light Computing**](https://www.nature.com/articles/d41586-024-03827-y) — PsiQuantum aims to build a giant light-based quantum computer by 2027, having raised $1B, though some scientists remain skeptical of their ambitious claims.
+[**ALA-CART Cancer Therapy**](https://scitechdaily.com/supercharged-t-cells-hunt-down-the-hardest-to-treat-cancers/) — Enhanced **CAR-T therapy** improves detection of **resistant cancer cells**, promising better outcomes with fewer side effects; clinical trials planned.
 
-[**Neuralink's Next Step**](https://www.wired.com/story/neuralink-robotic-arm-controlled-by-mind/) — Neuralink receives approval to test brain chip-controlled robotic arm, expanding beyond their current two-patient trial of computer control, while also gaining Canadian approval for clinical trials.
+[**BRP Weight Control**](https://med.stanford.edu/news/all-news/2025/03/ozempic-rival.html) — **Novel peptide** suppresses appetite without **Ozempic**-like side effects in animal studies; human trials upcoming for obesity treatment.
 
-[**Design Enlightenment**](https://www.youtube.com/watch?v=mzmdQtdCoWg) — Aligning creativity and consciousness with a groundbreaking approach to interior design. Beatrice Pila at TEDxSouthlake.
-
-[**Max Planck Institute**](https://interestingengineering.com/energy/spin-powered-crystals-could-boost-clean-hydrogen-production-200-times) — researchers develop special crystals that boost hydrogen production efficiency 200x by manipulating electron spin for clean energy production.
+[**3D-Printed ED Treatment**](https://medicalxpress.com/news/2025-03-3d-tissue-erectile-function-aids.html#google_vignette) — **Hydrogel-based penile models** restore function in animal studies, advancing erectile dysfunction treatment and organ transplant potential.
 
 INPUT:"
-Wellness,"**Shorten and summarize each story into one and a half lines including all the key information concisely in the following format. And remove UTM trackers from urls.**
-EXAMPLES:
-[**ALA-CART Cancer Therapy**](https://scitechdaily.com/supercharged-t-cells-hunt-down-the-hardest-to-treat-cancers/) [](https://phys.org/news/2025-03-molecular-3d-viral-machine-deciphered.html)— Enhanced CAR-T therapy improves detection of resistant cancer cells, promising better outcomes with fewer side effects; clinical trials planned.
+Travel Section 2,"**Shorten and summarize each separate story into one paragraph for the techbuzz newsletter snippets. Include all the key information concisely in the exact format below. Create a short, catchy engaging title, then a summary of the key news in one paragraph. AND bold all names, figures and keywords. And remove UTM trackers from urls.**
+"
+Travel,"**Shorten and summarize each separate story into one paragraph for the techbuzz newsletter snippets. Include all the key information concisely in the exact format below. Create a short, catchy engaging title, then a summary of the key news in one paragraph. AND bold all names, figures and keywords. And remove UTM trackers from urls.**
 
-[**BRP Weight Control**](https://med.stanford.edu/news/all-news/2025/03/ozempic-rival.html) — Novel peptide suppresses appetite without Ozempic-like side effects in animal studies; human trials upcoming for obesity treatment.
+INPUT:
+"
+Section 2,"**Shorten and summarize each separate story into one paragraph for the techbuzz newsletter snippets. Include all the key information concisely in the exact format below. Create a short, catchy engaging title, then a summary of the key news in one paragraph. And remove UTM trackers from urls.**
 
-[**3D-Printed ED Treatment**](https://medicalxpress.com/news/2025-03-3d-tissue-erectile-function-aids.html#google_vignette) — Hydrogel-based penile models restore function in animal studies, advancing erectile dysfunction treatment and organ transplant potential.
-
-[**AI Social Balance**](https://techcrunch.com/2025/03/07/health-expert-warns-of-leaning-too-heavily-on-ai-for-social-connections/) — Experts caution against over-reliance on AI for social connections, emphasizing real-world relationships remain crucial for wellbeing.
-
-[**Rapid H5N1 Detection**](https://www.sciencedaily.com/releases/2025/03/250303141305.htm) — Washington University's biosensor detects bird flu in under 5 minutes, enabling real-time monitoring for outbreak prevention.
-
-[**Corneal Stem Cell Success**](https://www.livescience.com/health/surgery/new-stem-cell-therapy-could-repair-irreversible-and-blinding-eye-damage-trial-finds) — New therapy repairs corneal damage in 93% of patients using healthy eye stem cells; 70% show improved vision after 18 months.
-
-INPUT:"
+INPUT:
+                                                                                                                                                                                                "
